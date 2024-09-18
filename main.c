@@ -8,7 +8,7 @@ void mostrarMenu();
 int main() {
     struct Usuario usuarios[100]; // Array de usuarios
     int contaregis = 0; // Contador de registros
-    char op;
+    char op; // Menu
     char si = 's';
 
     // Intro

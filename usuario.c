@@ -18,7 +18,6 @@ void nuevoRegistro(struct Usuario usuarios[], int *contaregis) {
         // Leer la CURP del usuario
         printf("\t Curp: ");
         fgets(nuevo.curp, sizeof(nuevo.curp), stdin);
-        // Eliminar el salto de línea del final si existe
         nuevo.curp[strcspn(nuevo.curp, "\n")] = '\0';
 
         usuarios[*contaregis] = nuevo; // Guardar el usuario en el array
@@ -29,7 +28,7 @@ void nuevoRegistro(struct Usuario usuarios[], int *contaregis) {
         printf("\t ID: %d\n", nuevo.id);
         printf("\t Saldo Inicial: %.2f\n", nuevo.saldo);
         printf("Presione cualquier tecla para continuar...");
-        getchar();  // Esperar una tecla para continuar
+        getchar();
     } else {
         printf("Límite de registros alcanzado.\n");
     }
@@ -48,7 +47,7 @@ void mostrarUsuarios(struct Usuario usuarios[], int contaregis) {
         }
     }
     printf("Presione cualquier tecla para continuar...");
-    getchar();  // Esperar una tecla para continuar
+    getchar();
 }
 
 // Función para buscar un registro por ID
@@ -57,7 +56,7 @@ void buscarRegistro(struct Usuario usuarios[], int contaregis) {
     int encontrado = 0;
     printf("Ingrese el ID a buscar: ");
     scanf("%d", &id);
-    getchar();  // Limpiar el buffer después de la lectura
+    getchar();  
 
     for (int i = 0; i < contaregis; i++) {
         if (usuarios[i].id == id) {
@@ -75,24 +74,22 @@ void buscarRegistro(struct Usuario usuarios[], int contaregis) {
     }
 
     printf("Presione cualquier tecla para continuar...");
-    getchar();  // Esperar una tecla para continuar
+    getchar(); 
 }
 
-// Función para eliminar un registro por ID
 void eliminarRegistro(struct Usuario usuarios[], int *contaregis) {
     int id;
     int encontrado = 0;
     printf("Ingrese el ID del registro a eliminar: ");
     scanf("%d", &id);
-    getchar();  // Limpiar el buffer después de la lectura
+    getchar(); 
 
     for (int i = 0; i < *contaregis; i++) {
         if (usuarios[i].id == id) {
-            // Desplazar los registros hacia arriba para sobreescribir el eliminado
             for (int j = i; j < *contaregis - 1; j++) {
                 usuarios[j] = usuarios[j + 1];
             }
-            (*contaregis)--; // Reducir el contador de registros
+            (*contaregis)--; 
             encontrado = 1;
             printf("Registro con ID %d eliminado.\n", id);
             break;
@@ -104,10 +101,9 @@ void eliminarRegistro(struct Usuario usuarios[], int *contaregis) {
     }
 
     printf("Presione cualquier tecla para continuar...");
-    getchar();  // Esperar una tecla para continuar
+    getchar(); 
 }
 
-// Nueva función para manejar transacciones
 void realizarTransaccion(struct Usuario usuarios[], int contaregis) {
     int id;
     float monto;
@@ -115,13 +111,13 @@ void realizarTransaccion(struct Usuario usuarios[], int contaregis) {
 
     printf("Ingrese el ID del usuario para realizar la transacción: ");
     scanf("%d", &id);
-    getchar();  // Limpiar el buffer después de la lectura
+    getchar();
 
     for (int i = 0; i < contaregis; i++) {
         if (usuarios[i].id == id) {
             printf("Ingrese el monto a retirar: ");
             scanf("%f", &monto);
-            getchar();  // Limpiar el buffer después de la lectura
+            getchar(); 
 
             if (monto > usuarios[i].saldo) {
                 printf("Saldo insuficiente.\n");
