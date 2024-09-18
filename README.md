@@ -10,5 +10,5 @@
 To compile and run:
 
 ```bash
-gcc main.c usuario.c transacciones.c -o ATM
+gcc main.c usuario.c -o ATM
 ./ATM
