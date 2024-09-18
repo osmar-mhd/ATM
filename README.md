@@ -1,1 +1,1 @@
-# ATM-Simulation-in-C
+# ATM
