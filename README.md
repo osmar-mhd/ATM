@@ -1,5 +1,5 @@
 # ATM
-**ATM** is a basic simulation of an ATM developed in C. It demonstrates fundamental programming concepts such as structures, functions, and file handling.
+**ATM** is a basic simulation of an ATM developed in C. It demonstrates fundamental programming concepts such as structures and functions.
 
 ### Features
 - **User Registration:** Add new users with a unique ID and initial balance.
